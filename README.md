@@ -3,8 +3,9 @@ store
 
 A Symfony project created on July 26, 2018, 9:46 pm.
 
-Route examples http://localhost/store/web/app_dev.php/orders  (GET)
-               http://localhost/store/web/app_dev.php/order   (POST) 
+Route examples: http://localhost/store/web/app_dev.php/orders  (GET);
+
+               http://localhost/store/web/app_dev.php/order   (POST); 
 Parameters:   
 {
   "name":"new order55",
