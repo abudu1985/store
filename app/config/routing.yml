@@ -1,0 +1,12 @@
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+api:
+    resource: api_routes.yml
+    type: rest
+    prefix: /api/
+
+#users:
+#    type:     rest
+#    resource: AppBundle\Controller\UsersController
