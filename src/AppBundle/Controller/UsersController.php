@@ -12,7 +12,7 @@ use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\View\View;
 
-class UsersController extends Controller
+class UsersController extends BaseController
 {
 
     /**
@@ -52,6 +52,8 @@ class UsersController extends Controller
                 'created' => $val->getCreateDate()->format('Y-m-d')
             ];
         }
-        return new Response(json_encode($restresult));
+
+        return $this->createApiResponse($restresult, 200);
+        //return new Response(json_encode($restresult));
     }
 }
