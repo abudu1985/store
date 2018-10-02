@@ -14,7 +14,7 @@ use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\View\View;
 
-class OrdersController extends Controller
+class OrdersController extends BaseController
 {
 
     /**
@@ -79,6 +79,11 @@ class OrdersController extends Controller
                 'items' => json_decode($val->getOrderItems())
             ];
         }
-        return new Response(json_encode($restresult));
+        //return $this->createApiResponse($restresult);
+        //return new Response(json_encode($restresult));
+
+        return new Response(json_encode($restresult), 200, array(
+            'Content-Type' => 'application/json'
+        ));
     }
 }

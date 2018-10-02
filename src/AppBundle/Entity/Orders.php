@@ -86,7 +86,7 @@ class Orders
      *
      * @param string $name
      *
-     * @return CurOrder
+     * @return Orders
      */
     public function setName($name)
     {
@@ -110,7 +110,7 @@ class Orders
      *
      * @param \DateTime $createDate
      *
-     * @return CurOrder
+     * @return Orders
      */
     public function setCreateDate($createDate)
     {
@@ -134,7 +134,7 @@ class Orders
      *
      * @param \DateTime $updatedDate
      *
-     * @return CurOrder
+     * @return Orders
      */
     public function setUpdatedDate($updatedDate)
     {
@@ -158,7 +158,7 @@ class Orders
      *
      * @param integer $totalQty
      *
-     * @return CurOrder
+     * @return Orders
      */
     public function setTotalQty($totalQty)
     {
@@ -182,7 +182,7 @@ class Orders
      *
      * @param string $totalPrice
      *
-     * @return CurOrder
+     * @return Orders
      */
     public function setTotalPrice($totalPrice)
     {
@@ -206,7 +206,7 @@ class Orders
      *
      * @param integer $orderUser
      *
-     * @return CurOrder
+     * @return Orders
      */
     public function setOrderUser(\AppBundle\Entity\User $orderUser)
     {
@@ -220,7 +220,7 @@ class Orders
      *
      * @param string $orderItems
      *
-     * @return CurOrder
+     * @return Orders
      */
     public function setOrderItems($orderItems)
     {
