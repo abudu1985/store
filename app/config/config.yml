@@ -88,3 +88,18 @@ fos_rest:
         default_engine: twig
     routing_loader:
         default_format: json
+
+easy_admin:
+    site_name: 'store'
+    entities:
+        # change the following to the namespaces of your own entities
+        - AppBundle\Entity\OrderItem
+        - AppBundle\Entity\Orders
+        - AppBundle\Entity\User
+        - AppBundle\Entity\Truck
+        - AppBundle\Entity\Moped
+        - AppBundle\Entity\Vehicle
+        - AppBundle\Entity\Device
+        - AppBundle\Entity\Mobile
+        - AppBundle\Entity\Hoover
+        - AppBundle\Entity\Freezer

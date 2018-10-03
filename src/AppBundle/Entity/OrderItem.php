@@ -35,6 +35,29 @@ class OrderItem
      */
     private $price;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="firm", type="string", length=255)
+     */
+    private $firm;
+
+    /**
+     * @param string $firm
+     */
+    public function setFirm($firm)
+    {
+        $this->firm = $firm;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFirm()
+    {
+        return $this->firm;
+    }
+
 
     /**
      * Get id

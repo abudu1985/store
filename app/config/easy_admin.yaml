@@ -1,0 +1,16 @@
+easy_admin:
+    entities:
+        # change the following to the namespaces of your own entities
+        - AppBundle\Entity\OrderItem
+        - AppBundle\Entity\Orders
+        - AppBundle\Entity\User
+        - AppBundle\Entity\Cat
+        - AppBundle\Entity\Dog
+        - AppBundle\Entity\Truck
+        - AppBundle\Entity\Moped
+        - AppBundle\Entity\Animal
+        - AppBundle\Entity\Vehicle
+        - AppBundle\Entity\Device
+        - AppBundle\Entity\Mobile
+        - AppBundle\Entity\Hoover
+        - AppBundle\Entity\Freezer

@@ -7,6 +7,12 @@ api:
     type: rest
     prefix: /api/
 
+easy_admin_bundle:
+    resource: "@EasyAdminBundle/Controller/AdminController.php"
+    type:     annotation
+    prefix:   /admin
+
+
 #users:
 #    type:     rest
 #    resource: AppBundle\Controller\UsersController
