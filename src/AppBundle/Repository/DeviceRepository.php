@@ -28,6 +28,16 @@ class DeviceRepository
             ->getOneOrNullResult();
     }
 
+    public function findAll(int $id): ?Device
+    {
+        return $this->entityRepository->createQueryBuilder('d')
+            ->where('d.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+
+
     public function insert(Device $device): void
     {
         $this->entityManager->persist($device);

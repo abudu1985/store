@@ -11,7 +11,7 @@ use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\View\View;
 
-class ItemsController extends Controller
+class ItemsController extends BaseController
 {
 
     /**
@@ -55,6 +55,7 @@ class ItemsController extends Controller
                 'price' => $val->getPrice()
             ];
         }
-        return new Response(json_encode($restresult));
+        return $this->createApiResponse($restresult, 200);
+
     }
 }
