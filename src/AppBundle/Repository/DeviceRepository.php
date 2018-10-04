@@ -28,6 +28,15 @@ class DeviceRepository
             ->getOneOrNullResult();
     }
 
+    public function findAllByAlies(string $alies): ?array
+    {
+        return $this->entityRepository->createQueryBuilder('d')
+            ->where('d INSTANCE OF :discr')
+            ->setParameter('discr', $alies)
+            ->getQuery()
+            ->getResult();
+    }
+
     public function insert(Device $device): void
     {
         $this->entityManager->persist($device);

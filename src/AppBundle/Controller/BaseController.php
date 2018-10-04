@@ -42,7 +42,18 @@ abstract class BaseController extends Controller
             $json = json_encode($arr);
 
 
-        return new Response($json, 200, array(
+        return new Response($json, 201, array(
+            'Content-Type' => 'application/json'
+        ));
+    }
+
+    protected function createReFormatedResponse($data, $format = 'json')
+    {
+        $serializer = \JMS\Serializer\SerializerBuilder::create()->build();
+
+        $json = $serializer->serialize($data, $format, SerializationContext::create()->setGroups(array('Default', 'list')));
+
+        return new Response($json, 201, array(
             'Content-Type' => 'application/json'
         ));
     }

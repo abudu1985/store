@@ -9,6 +9,7 @@ use AppBundle\Entity\Mobile;
 use AppBundle\Repository\DeviceRepository;
 use JMS\Serializer\DeserializationContext;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use FOS\RestBundle\Controller\Annotations as Rest;
 
@@ -38,7 +39,7 @@ class DeviceController extends BaseController
         $errors = $this->get('validator')->validate($mobile);
 
         if (count($errors) > 0) {
-            return $this->createApiResponse($errors, 200);
+            return $this->createApiResponse($errors, 422);
         }
 
         // creation
@@ -49,7 +50,7 @@ class DeviceController extends BaseController
 
         $this->deviceRepository->insert($mobile);
 
-        return $this->createApiResponse($mobile, 200);
+        return $this->createApiResponse($mobile, 201);
     }
 
     /**
@@ -68,7 +69,7 @@ class DeviceController extends BaseController
         $errors = $this->get('validator')->validate($hoover);
 
         if (count($errors) > 0) {
-            return $this->createApiResponse($errors, 200);
+            return $this->createApiResponse($errors, 422);
         }
 
         // creation
@@ -78,7 +79,7 @@ class DeviceController extends BaseController
 
         $this->deviceRepository->insert($hoover);
 
-        return $this->createApiResponse($hoover, 200);
+        return $this->createApiResponse($hoover, 201);
     }
 
     /**
@@ -97,7 +98,7 @@ class DeviceController extends BaseController
         $errors = $this->get('validator')->validate($freezer);
 
         if (count($errors) > 0) {
-            return $this->createApiResponse($errors, 200);
+            return $this->createApiResponse($errors, 422);
         }
 
         // creation
@@ -107,7 +108,7 @@ class DeviceController extends BaseController
 
         $this->deviceRepository->insert($freezer);
 
-        return $this->createApiResponse($freezer, 200);
+        return $this->createApiResponse($freezer, 201);
     }
 
     /**
@@ -133,7 +134,6 @@ class DeviceController extends BaseController
         if (!$device instanceof Device) {
             throw new BadRequestHttpException('Device not found.');
         }
-
         return $this->createFormatedResponse($device);
     }
 
@@ -146,5 +146,16 @@ class DeviceController extends BaseController
         return $this->createApiResponse($restresult, 200);
     }
 
-
+    /**
+     * get all devices related to "type" for example /devices/mobile  or /devices/hoover
+     * @Rest\Get("/devices/{alies}")
+     */
+    public function findAllByAlies(string $alies)
+    {
+        $devices = $this->deviceRepository->findAllByAlies($alies);
+        if (!count($devices)) {
+            throw new BadRequestHttpException('Devices not found.');
+        }
+        return $this->createReFormatedResponse($devices);
+    }
 }
