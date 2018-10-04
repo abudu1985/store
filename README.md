@@ -17,4 +17,8 @@ Parameters:
   ]
 }
 
+it possible to see entities content following link  ../store/web/app_dev.php/admin
+
+![alt text](https://github.com/abudu1985/store/blob/master/web/images/Selection_002.png)
+
 Tests run by command:  ./vendor/bin/simple-phpunit
