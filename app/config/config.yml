@@ -98,9 +98,6 @@ easy_admin:
         - AppBundle\Entity\OrderItem
         - AppBundle\Entity\Orders
         - AppBundle\Entity\User
-        - AppBundle\Entity\Truck
-        - AppBundle\Entity\Moped
-        - AppBundle\Entity\Vehicle
         - AppBundle\Entity\Device
         - AppBundle\Entity\Mobile
         - AppBundle\Entity\Hoover
