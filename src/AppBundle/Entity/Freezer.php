@@ -2,6 +2,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity
@@ -11,7 +12,7 @@ class Freezer extends Device
 
     /**
      * @ORM\Column(name="temperature", type="integer")
-     *
+     * @Groups({"create", "list"})
      */
     private $temperature;
 

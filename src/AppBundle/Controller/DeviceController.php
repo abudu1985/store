@@ -7,8 +7,8 @@ use AppBundle\Entity\Freezer;
 use AppBundle\Entity\Hoover;
 use AppBundle\Entity\Mobile;
 use AppBundle\Repository\DeviceRepository;
+use JMS\Serializer\DeserializationContext;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use FOS\RestBundle\Controller\Annotations as Rest;
 
@@ -27,15 +27,29 @@ class DeviceController extends BaseController
      */
     public function createMobileAction(Request $request)
     {
-        $fields = json_decode($request->getContent(), true);
+        // validation
+        $mobile = $this->get('jms_serializer')->deserialize(
+            $request->getContent(),
+            Mobile::class,
+            'json',
+            DeserializationContext::create()->setGroups(['create'])
+        );
 
+        $errors = $this->get('validator')->validate($mobile);
+
+        if (count($errors) > 0) {
+            return $this->createApiResponse($errors, 200);
+        }
+
+        // creation
+        $fields = json_decode($request->getContent(), true);
         $mobile = $this->createDevice(new Mobile(), $fields);
         $mobile->setMemory($fields['memory']);
         $mobile->setRam($fields['ram']);
 
         $this->deviceRepository->insert($mobile);
 
-        return new Response('Mobile created!', Response::HTTP_CREATED);
+        return $this->createApiResponse($mobile, 200);
     }
 
     /**
@@ -43,14 +57,28 @@ class DeviceController extends BaseController
      */
     public function createHooverAction(Request $request)
     {
-        $fields = json_decode($request->getContent(), true);
+        // validation
+        $hoover = $this->get('jms_serializer')->deserialize(
+            $request->getContent(),
+            Hoover::class,
+            'json',
+            DeserializationContext::create()->setGroups(['create'])
+        );
 
+        $errors = $this->get('validator')->validate($hoover);
+
+        if (count($errors) > 0) {
+            return $this->createApiResponse($errors, 200);
+        }
+
+        // creation
+        $fields = json_decode($request->getContent(), true);
         $hoover = $this->createDevice(new Hoover(), $fields);
         $hoover->setPower($fields['power']);
 
         $this->deviceRepository->insert($hoover);
 
-        return new Response('Hoover created!', Response::HTTP_CREATED);
+        return $this->createApiResponse($hoover, 200);
     }
 
     /**
@@ -58,14 +86,28 @@ class DeviceController extends BaseController
      */
     public function createFreezerAction(Request $request)
     {
-        $fields = json_decode($request->getContent(), true);
+        // validation
+        $freezer = $this->get('jms_serializer')->deserialize(
+            $request->getContent(),
+            Freezer::class,
+            'json',
+            DeserializationContext::create()->setGroups(['create'])
+        );
 
+        $errors = $this->get('validator')->validate($freezer);
+
+        if (count($errors) > 0) {
+            return $this->createApiResponse($errors, 200);
+        }
+
+        // creation
+        $fields = json_decode($request->getContent(), true);
         $freezer = $this->createDevice(new Freezer(), $fields);
         $freezer->setTemperature($fields['temperature']);
 
         $this->deviceRepository->insert($freezer);
 
-        return new Response('Freezer created!', Response::HTTP_CREATED);
+        return $this->createApiResponse($freezer, 200);
     }
 
     /**

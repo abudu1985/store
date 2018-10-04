@@ -3,7 +3,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation\Groups;
-use JMS\Serializer\Annotation as Serializer;
+
 
 /**
  * @ORM\Entity
@@ -13,6 +13,7 @@ class Hoover extends Device
 
     /**
      * @ORM\Column(name="power", type="integer")
+     * @Groups({"create", "list"})
      */
     private $power;
 

@@ -24,14 +24,14 @@ class Device
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      * @Serializer\Expose
-     * @Groups({"Default"})
+     * @Groups({"view"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string")
      * @Serializer\Expose
-     * @Groups({"Default"})
+     * @Groups({"create", "list"})
      */
     private $color;
 
@@ -41,7 +41,7 @@ class Device
      *
      * @ORM\Column(name="price", type="decimal", precision=19, scale=2)
      * @Serializer\Expose
-     * @Groups({"Default"})
+     * @Groups({"create", "list"})
      */
     private $price;
 
@@ -50,7 +50,7 @@ class Device
      *
      * @ORM\Column(name="firm", type="string", length=255)
      * @Serializer\Expose
-     * @Groups({"Default"})
+     * @Groups({"create", "list"})
      */
     private $firm;
 
