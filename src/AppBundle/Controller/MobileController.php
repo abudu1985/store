@@ -2,16 +2,10 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\Device;
-use AppBundle\Entity\Freezer;
-use AppBundle\Entity\Hoover;
 use AppBundle\Entity\Mobile;
-use AppBundle\Repository\DeviceRepository;
 use JMS\Serializer\DeserializationContext;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
-use FOS\RestBundle\Controller\Annotations as Rest;
 
 class MobileController extends DeviceController
 {
@@ -42,7 +36,9 @@ class MobileController extends DeviceController
         $mobile->setMemory($fields['memory']);
         $mobile->setRam($fields['ram']);
 
-        $this->deviceRepository->insert($mobile);
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($mobile);
+        $em->flush();
 
         return $this->createApiResponse($mobile, 201);
     }

@@ -33,13 +33,3 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
-
-    app.entity_repository.customer:
-        class: Doctrine\ORM\EntityRepository
-        factory: [ "@doctrine.orm.entity_manager", getRepository ]
-        arguments:
-            - AppBundle\Entity\Device
-
-    AppBundle\Repository\DeviceRepository:
-        arguments:
-            $entityRepository: "@app.entity_repository.customer"

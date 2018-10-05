@@ -34,7 +34,9 @@ class FreezerController extends DeviceController
         $freezer = $this->createDevice(new Freezer(), $fields);
         $freezer->setTemperature($fields['temperature']);
 
-        $this->deviceRepository->insert($freezer);
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($freezer);
+        $em->flush();
 
         return $this->createApiResponse($freezer, 201);
     }

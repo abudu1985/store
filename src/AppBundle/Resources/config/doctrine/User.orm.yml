@@ -1,0 +1,16 @@
+AppBundle\Entity\User:
+    type: entity
+    id:
+        id:
+            type: smallint
+            nullable: false
+            options:
+                unsigned: true
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+        create_date:
+            type: datetime

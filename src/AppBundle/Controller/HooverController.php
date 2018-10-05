@@ -34,7 +34,9 @@ class HooverController extends DeviceController
         $hoover = $this->createDevice(new Hoover(), $fields);
         $hoover->setPower($fields['power']);
 
-        $this->deviceRepository->insert($hoover);
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($hoover);
+        $em->flush();
 
         return $this->createApiResponse($hoover, 201);
     }

@@ -8,13 +8,7 @@ use JMS\Serializer\Annotation\Expose;
 use JMS\Serializer\Annotation as Serializer;
 use JMS\Serializer\Annotation\Groups;
 
-/**
- * @ORM\Entity
- * @ORM\InheritanceType("SINGLE_TABLE")
- * @ORM\DiscriminatorColumn(name="discr", type="string")
- * @ORM\DiscriminatorMap({"device" = "Device", "mobile" = "Mobile", "hoover" = "Hoover", "freezer" = "Freezer"})
- * @ExclusionPolicy("all")
- */
+
 class Device
 {
     /**
