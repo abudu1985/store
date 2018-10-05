@@ -3,13 +3,13 @@
 namespace AppBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Routing\Annotation\Route;
 
 class DefaultController extends BaseController
 {
 
     /**
-     * @Route("/", name="homepage")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function indexAction(Request $request)
     {

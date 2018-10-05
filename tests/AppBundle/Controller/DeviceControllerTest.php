@@ -41,7 +41,7 @@ class DeviceControllerTest extends WebTestCase
     public function testCreateHoover()
     {
         $client = static::createClient();
-        $client->request('POST', '/hoover', [], [], [], json_encode($this->hoover));
+        $client->request('POST', '/devices/hoover', [], [], [], json_encode($this->hoover));
         $this->assertEquals(201, $client->getResponse()->getStatusCode());
         $this->assertJson($client->getResponse()->getContent());
     }
@@ -49,7 +49,7 @@ class DeviceControllerTest extends WebTestCase
     public function testCreateMobile()
     {
         $client = static::createClient();
-        $client->request('POST', '/mobile', [], [], [], json_encode($this->mobile));
+        $client->request('POST', '/devices/mobile', [], [], [], json_encode($this->mobile));
         $this->assertEquals(201, $client->getResponse()->getStatusCode());
         $this->assertJson($client->getResponse()->getContent());
     }
@@ -57,7 +57,7 @@ class DeviceControllerTest extends WebTestCase
     public function testCreateFreezer()
     {
         $client = static::createClient();
-        $client->request('POST', '/freezer', [], [], [], json_encode($this->freezer));
+        $client->request('POST', '/devices/freezer', [], [], [], json_encode($this->freezer));
         $this->assertEquals(201, $client->getResponse()->getStatusCode());
         $this->assertJson($client->getResponse()->getContent());
     }

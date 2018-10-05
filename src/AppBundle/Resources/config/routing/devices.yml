@@ -1,0 +1,14 @@
+create_hoover:
+    path: /hoover
+    methods: [POST]
+    controller: AppBundle:Hoover:createHoover
+
+create_mobile:
+    path: /mobile
+    methods: [POST]
+    controller: AppBundle:Mobile:createMobile
+
+create_freezer:
+    path: /freezer
+    methods: [POST]
+    controller: AppBundle:Freezer:createFreezer

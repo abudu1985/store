@@ -1,0 +1,38 @@
+# general
+get_all_devices:
+    path: /devices
+    controller: AppBundle:Device:getAll
+    methods: [GET]
+
+get_devices_by_type:
+    path: /devices/{alies}
+    controller: AppBundle:Device:findAllByAlies
+    methods: [GET]
+    requirements:
+        alies: \w+
+
+get_device_by_id:
+    path: /device/{id}
+    controller: AppBundle:Device:getOne
+    methods: [GET]
+    requirements:
+        id: \d+
+
+# specific
+devices:
+    resource: 'routing/devices.yml'
+    prefix: /devices
+
+# old
+get_default_page:
+    path: /
+    controller: AppBundle:Default:index
+
+users:
+    resource: 'routing/users.yml'
+
+orders:
+    resource: 'routing/orders.yml'
+
+order_item:
+    resource: 'routing/order_item.yml'
