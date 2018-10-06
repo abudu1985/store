@@ -3,70 +3,57 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use AppBundle\Entity\User;
 
 /**
  * Orders
  *
- * @ORM\Table(name="orders")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\OrdersRepository")
  */
 class Orders
 {
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="create_date", type="datetime")
      */
     private $createDate;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="updated_date", type="datetime", nullable=true)
      */
     private $updatedDate;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="total_qty", type="integer")
      */
     private $totalQty;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="total_price", type="decimal", precision=19, scale=2)
      */
     private $totalPrice;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * @var int
+     *
      */
     private $orderUser;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="order_items", type="text")
      */
     private $orderItems;
 
