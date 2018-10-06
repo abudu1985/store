@@ -1,18 +1,26 @@
 AppBundle\Entity\OrderItem:
     type: entity
+    table: order_item
+    repositoryClass: AppBundle\Repository\OrderItemRepository
     id:
         id:
-            type: smallint
+            type: integer
             nullable: false
             options:
-                unsigned: true
+                unsigned: false
             id: true
             generator:
-                strategy: AUTO
+                strategy: IDENTITY
     fields:
         name:
             type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
         price:
             type: decimal
+            nullable: false
             precision: 19
             scale: 2
+    lifecycleCallbacks: {  }

@@ -35,6 +35,7 @@ class User
      */
     private $createDate;
 
+    private $orders;
 
     /**
      * Get id

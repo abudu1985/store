@@ -1,16 +1,27 @@
 AppBundle\Entity\User:
     type: entity
+    table: user
     id:
         id:
-            type: smallint
+            type: integer
             nullable: false
             options:
-                unsigned: true
+                unsigned: false
             id: true
             generator:
-                strategy: AUTO
+                strategy: IDENTITY
     fields:
         name:
             type: string
-        create_date:
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        createDate:
             type: datetime
+            nullable: false
+            column: create_date
+    oneToMany:
+        orders:
+            targetEntity: AppBundle\Entity\Orders
+            mappedBy: user
