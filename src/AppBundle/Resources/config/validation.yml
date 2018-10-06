@@ -14,7 +14,6 @@ AppBundle\Entity\Device:
             - Type:
                 type: string
                 message: The value {{ value }} is not a valid {{ type }}.
-                groups: [create]
 
 AppBundle\Entity\Hoover:
     properties:

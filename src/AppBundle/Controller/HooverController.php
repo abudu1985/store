@@ -20,12 +20,14 @@ class HooverController extends DeviceController
             $request->getContent(),
             Hoover::class,
             'json',
-            DeserializationContext::create()->setGroups(['create'])
+            DeserializationContext::create()->setGroups(['Default', 'create'])
         );
 
         $errors = $this->get('validator')->validate($hoover);
 
         if (count($errors) > 0) {
+            var_dump($hoover);
+            var_dump($errors);exit();
             return $this->createApiResponse($errors, 422);
         }
 

@@ -21,7 +21,7 @@ class MobileController extends DeviceController
             $request->getContent(),
             Mobile::class,
             'json',
-            DeserializationContext::create()->setGroups(['create'])
+            DeserializationContext::create()->setGroups(['Default', 'create'])
         );
 
         $errors = $this->get('validator')->validate($mobile);

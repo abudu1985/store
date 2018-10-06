@@ -1,7 +1,6 @@
 <?php
 namespace App\Tests\Controller;
 
-use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class DeviceControllerTest extends WebTestCase

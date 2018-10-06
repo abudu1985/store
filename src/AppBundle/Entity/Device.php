@@ -14,37 +14,24 @@ class Device
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     * @Serializer\Expose
-     * @Groups({"view"})
      */
     private $id;
 
     /**
-     * @ORM\Column(type="string")
-     * @Serializer\Expose
-     * @Groups({"create", "list"})
+     * @var string
      */
     private $color;
 
 
     /**
-     * @var string
+     * @var float
      *
-     * @ORM\Column(name="price", type="decimal", precision=19, scale=2)
-     * @Serializer\Expose
-     * @Groups({"create", "list"})
      */
     private $price;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="firm", type="string", length=255)
-     * @Serializer\Expose
-     * @Groups({"create", "list"})
      */
     private $firm;
 

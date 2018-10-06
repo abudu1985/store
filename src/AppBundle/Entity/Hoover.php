@@ -1,19 +1,15 @@
 <?php
 namespace AppBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-use JMS\Serializer\Annotation\Groups;
-
 
 /**
- * @ORM\Entity
+ *  Hoover
  */
 class Hoover extends Device
 {
-
     /**
-     * @ORM\Column(name="power", type="integer")
-     * @Groups({"create", "list"})
+     * @var int
+     *
      */
     private $power;
 

@@ -20,7 +20,7 @@ class FreezerController extends DeviceController
             $request->getContent(),
             Freezer::class,
             'json',
-            DeserializationContext::create()->setGroups(['create'])
+            DeserializationContext::create()->setGroups(['Default', 'create'])
         );
 
         $errors = $this->get('validator')->validate($freezer);
